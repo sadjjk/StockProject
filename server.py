@@ -17,7 +17,8 @@ def index():
                             my_stock_data = my_stock_data,
                             hs300_data = hs300_data,
                             market_index_data=market_index_data,
-                            top_banner_data = get_top_banner()
+                            top_banner_data = get_top_banner(),
+                            footer_string = random.choice(FOOTER_STRING)
                     )
 
 
@@ -48,10 +49,7 @@ def stock_figure(code):
 
 
         history_data = get_stock_history(code)
-
         minute_data = get_stock_minute(code)
-
-
         return template('figure',history_data = history_data,
                                        minute_data = {"data":minute_data,
                                                       "yestclose":single_stock_detail[6]},

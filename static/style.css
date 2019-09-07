@@ -116,7 +116,7 @@ body{
 }
 
 
-.header{
+.header,footer{
 	padding: 4px 0px;
 	text-align: center;
 }
@@ -170,3 +170,4 @@ body{
     height: 34px;
     position: relative;
 }
+
