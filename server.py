@@ -60,7 +60,6 @@ def stock_figure(code):
 
 @error(404)
 def miss(error):
-    msg = '404  T . T&nbsp;&nbsp;&nbsp;页面跟丢了....'
     current_date = datetime.datetime.now().strftime('%Y-%m-%d')
     current_time = datetime.datetime.now().strftime('%H:%M:%S')
     market_index_data = get_market_index()
@@ -68,7 +67,7 @@ def miss(error):
                             current_time = current_time,
                             market_index_data=market_index_data,
                             footer_string=random.choice(FOOTER_STRING),
-                            msg = msg
+                            msg = ''
                             )
 
 run(host = 'localhost', port = 8002, debug = True, reloader = True)

@@ -34,7 +34,7 @@
 </div>
 	<div class="content"></div>
 	<div style="padding: 10px">
-		<h1 style="color: #ffffff;font-size: 60px">{{msg}}</h1>
+		<h1 style="color: #ffffff;font-size: 60px" id="msg" >404&nbsp;&nbsp;&nbsp;&nbsp;T . T&nbsp;&nbsp;&nbsp;&nbsp;页面跟丢了....</h1>
 	</div>
 
 
@@ -52,10 +52,11 @@
 			<img class="horizontal-center" src="../static/blog.png" style="padding-left: 40px;">
 		</a>
     </div>
-
-
-
-
+<script>
+	var msg = '{{msg}}'
+    if (msg != '')
+        document.getElementById('msg').innerHTML = msg;
+</script>
 
 </body>
 </html>
