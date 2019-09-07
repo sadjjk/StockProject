@@ -1,0 +1,197 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/style.css"/>
+</head>
+<title>今日Stock
+</title>
+<body>
+
+    <div class="header">
+        <div class="horizontal-center left-header ">
+            {{current_time}}
+        </div>
+        <div class="horizontal-center market-index">
+                <div class="ui inverted segment" style="background-color: transparent">
+                    <div class="ui inverted relaxed divided list">
+                        % for item in market_index_data:
+                        <div class="item">
+
+                            <span class="horizontal-center white width-80 ">{{item['f1']}}</span>
+
+                          %if float(item['f4']) > 0:
+                            <span class="horizontal-center red width-80" >{{item['f2']}}</span>
+                            <span class="horizontal-center red width-80" >{{item['f3']}}%</span>
+                            <span class="horizontal-center red width-80" >{{item['f4']}}</span>
+                            <span class="horizontal-center red width-80" >{{item['f6']}}</span>
+                            %else:
+                            <span class="horizontal-center green width-80">{{item['f2']}}</span>
+                            <span class="horizontal-center green width-80" >{{item['f3']}}%</span>
+                            <span class="horizontal-center green width-80" >{{item['f4']}}</span>
+                            <span class="horizontal-center green width-80" >{{item['f6']}}</span>
+                            %end
+                            <span class="horizontal-center red width-80" >{{item['f104']}}</span>
+                            <span class="horizontal-center white width-80" >{{item['f106']}}</span>
+                            <span class="horizontal-center green width-80" >{{item['f105']}}</span>
+
+                        </div>
+                        %end
+                    </div>
+                </div>
+        </div>
+        <div class="horizontal-center right-header ">
+            <div class="right-header-time ">
+                {{current_date}}
+            </div>
+            <div >
+                <div class="ui small icon input " style="width: 100%;position: relative">
+                    <input class="prompt" value="" type="text" placeholder="搜索股票" id="stock-search" >
+                    <i  class="search icon" id="search" ></i>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="banner">
+
+
+
+        <div class="ui stackable four column grid">
+            % for index_data in top_banner_data:
+            <div class="column">
+                <div class="ui inverted segment">
+                    <div class=""><h3>{{index_data['chinese_name']}}Top</h3></div>
+                    <div class="ui inverted relaxed divided list">
+                        % for item in index_data['data']:
+                        <div class="item">
+                            <div>
+                                <a href="/stock/{{item['f12']}}">
+                                    <span class="horizontal-center white width-60">{{item['f14']}}</span>
+                                </a>
+                                %if float(item['f3']) > 0:
+                                <span class="horizontal-center red width-80">{{item[index_data['field_name']]}}{{index_data['unit_symbol']}}</span>
+                                <span class="horizontal-center red width-60">{{item['f3']}}%</span>
+                                %elif float(item['f3']) == 0:
+                                <span class="horizontal-center white width-80">{{item[index_data['field_name']]}}{{index_data['unit_symbol']}}</span>
+                                <span class="horizontal-center white width-60">{{item['f3']}}%</span>
+                                %else:
+                                <span class="horizontal-center green width-80">{{item[index_data['field_name']]}}{{index_data['unit_symbol']}}</span>
+                                <span class="horizontal-center green width-60">{{item['f3']}}%</span>
+
+                                %end
+                            </div>
+                        </div>
+                        %end
+                    </div>
+                </div>
+            </div>
+            %end
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="title">
+            <span class="title-name">自选股</span>
+        </div>
+        <ul class="stock-list">
+            % for item in my_stock_data:
+            <li  >
+                <a href="/stock/{{item[0][2:]}}">
+                <span class="horizontal-center white width-60 ">{{item[1]}}</span>
+
+                %if float(item[4]) > 0:
+                <span class="horizontal-center red width-60">{{item[2]}}</span>
+                <span class="horizontal-center red width-60">{{item[4]}}%</span>
+                %elif float(item[4]) == 0:
+                <span class="horizontal-center white width-60">{{item[2]}}</span>
+                <span class="horizontal-center white width-60">{{item[4]}}%</span>
+                %else:
+                <span class="horizontal-center green width-60">{{item[2]}}</span>
+                <span class="horizontal-center green width-60">{{item[4]}}%</span>
+
+
+                %end
+                </a>
+
+            </li>
+            %end
+            <div class="horizontal-center add-stock">
+                <div class="ui mini  icon input  " style="width: 100%;position: relative;top: 3px;">
+                    <input class="prompt" value="" type="text" placeholder="添加自选" id="add-stock" style="background-color: #000;color: #fff">
+                </div>
+            </div>
+        </ul>
+        <div class="title">
+            <span class="title-name">沪深300</span>
+        </div>
+        <ul class="stock-list">
+            % for item in hs300_data:
+            <li  >
+                <a href="/stock/{{item[0][2:]}}">
+                <span class="horizontal-center white width-60 ">{{item[1]}}</span>
+
+                %if float(item[4]) > 0:
+                <span class="horizontal-center red width-60">{{item[2]}}</span>
+                <span class="horizontal-center red width-60">{{item[4]}}%</span>
+                %elif float(item[4]) == 0:
+                <span class="horizontal-center white width-60">{{item[2]}}</span>
+                <span class="horizontal-center white width-60">{{item[4]}}%</span>
+                %else:
+                <span class="horizontal-center green width-60">{{item[2]}}</span>
+                <span class="horizontal-center green width-60">{{item[4]}}%</span>
+
+
+                %end
+                </a>
+            </li>
+            %end
+        </ul>
+    </div>
+
+
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.js"></script>
+<script>
+
+    // 刷新
+    //  setTimeout(function(){
+    //      window.location.reload();
+    //  }, 3000)
+
+    var search_url = "/stock/"
+    $('#stock-search').bind('keypress',function(event){
+        var word = $('#stock-search').val()
+        if(event.keyCode == "13" && word.length >=6  )
+        {
+            window.location = search_url + word;
+        }
+    });
+
+    $('#search').click(function(){
+        var word = $('#stock-search').val()
+        if (word.length >=6)
+        {
+            window.location = search_url + word;
+        }
+    });
+
+
+    $('#add-stock').bind('keypress',function(event){
+        var word = $('#add-stock').val()
+        if (word.length >=6){
+            if (confirm("确认添加" + word + "到自选股？")) {
+                // document.write("You pressed OK!")
+                $.post("/index",{code:word},function(data) {
+                    window.location.href = "/"
+                })
+
+            }
+        }
+
+
+    });
+</script>
+</body>
+</html>

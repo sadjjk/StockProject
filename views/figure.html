@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.css">
+    	<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#B4E6FB"> 
+		<title>行情</title>  
+	</head>
+
+	<body>
+
+		<div style="padding:10px 20px;text-align:center">
+			<div class="figure-content">
+				<div class="figure-stock-info white"  >
+				{{stock_info[1]}}
+				</div>
+
+				%if float(stock_info[4]) > 0:
+                <div class="figure-stock-info red">
+                    {{stock_info[2]}}
+                </div>
+				<div class="figure-stock-info red">
+                    {{stock_info[4]}}%↑
+                </div>
+                %else:
+                <div class="figure-stock-info green">
+                    {{stock_info[2]}}
+                </div>
+				<div class="figure-stock-info green">
+                    {{stock_info[4]}}%↓
+                </div>
+                %end
+
+
+
+			</div>
+			<div class="figure-index ">
+				<a href="/index"  >首页</a>
+			</div>
+		</div>
+
+
+
+		<div id="Kline-div" class="Kline-div ">
+			<div id="m-line" class="m-line"></div>
+			<div id="k-content" class="K-line"></div>
+		</div>
+
+		<script src="../static/jquery-3.3.1.min.js"></script>
+		<script src="../static/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/k-line.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+
+				var kdata = {{history_data}}
+				var mdata = {{minute_data}}
+				var mChart = echarts.init(document.getElementById('m-line'));
+				mChart.setOption(initMOption(mdata,'hs'));
+				
+				var kChart = echarts.init(document.getElementById('k-content')); 
+				kChart.setOption(initKOption(kdata)); 
+		
+		// 刷新
+     	// 			setTimeout(function(){
+        //  				window.location.reload();
+		// 		     }, 3000)
+		</script>
+
+
+		
+	</body>
+</html>

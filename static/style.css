@@ -1,0 +1,172 @@
+body{
+	background: #333;
+}
+
+.fr{
+    float:right;
+}
+.fl{
+    float:left;
+}
+
+.banner{
+    padding: 2px 25px 5px;
+    text-align: center;
+}
+
+
+
+
+.content{
+    padding-top: 15px;
+}
+
+.stock-list {
+
+	margin: 0;
+	text-align: center;
+	padding-left: 1px;
+	padding-top: 5px;
+
+}
+
+.stock-list li {
+    padding: 2px 0px;
+    display: inline-block;
+    background-color: #000;
+    border-radius: 5px;
+    margin: 4px;
+	min-height: 31px;
+    text-align: center;
+
+}
+
+.stock-list .stock-name{
+    float: left;
+    font-size: 12px;
+    color: #ddd;
+}
+
+.stock-list .stock-price{
+    float:right;
+    font-size: 13px;
+}
+
+
+.red{
+    color:#f00;
+}
+
+.green{
+    color:#00ff00;
+}
+
+
+.white{
+	color: #ffffff;
+}
+
+.width-80{
+	width: 80px;
+}
+
+.width-60{
+	width: 60px;
+}
+.Kline-div{
+		position: absolute;
+	 	width: 100%;
+		bottom: 0rem;
+		top: 12%;
+		text-align:center;
+		padding: 0px 20px;
+	}
+.Kline-div .m-line{height: 80%;width: 100%;margin:0 auto }
+.Kline-div .K-line{height: 60%;width: 100%;margin:0 auto}
+
+.figure-content {
+	width:50% ;
+	text-align:center;
+	min-height: 30px;
+	border-radius: 5px;
+	margin: 0 auto;
+	line-height: 30px;
+	display: inline-block;
+}
+
+.figure-stock-info{
+	min-width: 30%;
+	display: inline-block;
+}
+
+
+.figure-index {
+	float: right;
+	width:5% ;
+	text-align:center;
+	min-height: 30px;
+	background-color: #1b1c1d40;
+	border-radius: 5px;
+	line-height: 30px;
+}
+
+.figure-index a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+
+.header{
+	padding: 4px 0px;
+	text-align: center;
+}
+
+.horizontal-center{
+	display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+.right-header{
+	width: 115px;
+	position: relative;
+}
+
+.left-header{
+    color: #fff;
+    font-size: 48px;
+}
+
+.right-header-time {
+    color: #fff;
+    font-size: 20px;
+	text-align: right;
+	padding: 10px 2px;
+}
+
+.market-index-num{
+    padding: 1px 10px;
+}
+
+.title{
+	width: 93%;
+	line-height: 25px;
+	border-bottom: solid 4px #1b1c1d;
+	left: 44px;
+    position: relative;
+}
+
+.title-name{
+	width: 85px;
+	font-size: 25px;
+	background: #1b1c1d;
+	color: #fff;
+	padding-right: 10px;
+}
+
+.add-stock{
+	width: 115px;
+    height: 34px;
+    position: relative;
+}
