@@ -2,6 +2,7 @@ import logging
 import time
 import traceback
 
+
 '''
 定义装饰器，用于检查各个函数的的异常
 '''
@@ -15,7 +16,8 @@ def check_func(func):
                          'args:%s kwargs:%s' % (func.__name__, (end - start), str(args),str(kwargs)))
             return res
         except:
-            logging.error('%s failed argv:%s :' % (func.__name__ ,argv) + traceback.format_exc())
+            logging.error('%s failed \n'
+                          'args:%s kwargs:%s' % (func.__name__ ,args,kwargs) + traceback.format_exc())
 
     return inner
 
@@ -36,3 +38,6 @@ def add_code_sign(code):
         code = 'sh' + code
 
     return  code
+
+
+

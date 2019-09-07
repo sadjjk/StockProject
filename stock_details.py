@@ -1,16 +1,14 @@
+from helps import add_code_sign, check_func, check_response
+from requests.adapters import HTTPAdapter
+from config import *
+import tushare as ts
+import requests
+import pickle
 import json
 import os
-import pickle
 
-import requests
-import tushare as ts
-from requests.adapters import HTTPAdapter
 
-from config import *
-from helps import add_code_sign, check_func, check_response
-
-logging.basicConfig(level=logging.ERROR,format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
+logging.basicConfig(level=logging_level,format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 
 def get_hs300():
@@ -230,16 +228,7 @@ def get_top_banner():
 
 
 if __name__ == '__main__':
-
-
-    # stock_list = get_my_stock()
-
-    # get_hs300()
-
-    # data = get_stock_minute('AAAAA')
-
-    data = top_ten_stock('f2',unit=100)
-    # data = get_top_banner()
+    data = get_stock_detail(['123345'])[0]
 
     data
 

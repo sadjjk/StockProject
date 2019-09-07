@@ -1,11 +1,7 @@
+from bottle import default_app, request, route, static_file, template,run
+from stock_details import *
 import datetime
 import re
-import traceback
-
-from bottle import default_app, request, route, static_file, template
-
-from stock_details import *
-
 
 @route("/")
 @route("/index")
@@ -43,34 +39,32 @@ def server_static(filename):
 @route("/stock/<code>")
 def stock_figure(code):
 
-
     if re.search(r'^(sh|sz)?\d{6}$',code):
-
         try:
 
-
-            history_data = get_stock_history(code)
-
-            minute_data = get_stock_minute(code)
-
-            # print(minute_data[-1])
             single_stock_detail = get_stock_detail([code])[0]
-            return template('figure',history_data = history_data,
-                                           minute_data = {"data":minute_data,
-                                                          "yestclose":single_stock_detail[6]},
-                                           stock_info = single_stock_detail).replace('&#039;',"'")
         except:
-            return template('error')
-            logging.warning('获取股票编码失败')
-            logging.warning('错误信息:' + traceback.format_exc())
+            return  str({"code":500,"msg":"该股票代码:%s不存在！" % code}).encode('utf-8')
+
+
+        history_data = get_stock_history(code)
+
+        minute_data = get_stock_minute(code)
+
+
+        return template('figure',history_data = history_data,
+                                       minute_data = {"data":minute_data,
+                                                      "yestclose":single_stock_detail[6]},
+                                       stock_info = single_stock_detail).replace('&#039;',"'")
+
     else:
-        return  template('error')
+        return  str({"code":500,"msg":"请输入6位股票代！" }).encode('utf-8')
 
 @route("/error")
 def error():
     return template('error')
 
-# run(host = 'localhost', port = 8002, debug = True, reloader = True)
-application = default_app()
+run(host = 'localhost', port = 8002, debug = True, reloader = True)
+# application = default_app()
 
 
