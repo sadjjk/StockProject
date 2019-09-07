@@ -1,4 +1,4 @@
-from bottle import default_app, request, route, static_file, template,run
+from bottle import default_app, request, route, static_file, template,run,error
 from stock_details import *
 import datetime
 import re
@@ -58,9 +58,18 @@ def stock_figure(code):
     else:
         return  str({"code":500,"msg":"请输入6位股票代！" }).encode('utf-8')
 
-@route("/error")
-def error():
-    return template('error')
+@error(404)
+def miss(error):
+    msg = '404  T . T&nbsp;&nbsp;&nbsp;页面跟丢了....'
+    current_date = datetime.datetime.now().strftime('%Y-%m-%d')
+    current_time = datetime.datetime.now().strftime('%H:%M:%S')
+    market_index_data = get_market_index()
+    return template('error',current_date = current_date,
+                            current_time = current_time,
+                            market_index_data=market_index_data,
+                            footer_string=random.choice(FOOTER_STRING),
+                            msg = msg
+                            )
 
 run(host = 'localhost', port = 8002, debug = True, reloader = True)
 # application = default_app()

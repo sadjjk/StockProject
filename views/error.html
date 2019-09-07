@@ -1,23 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="../static/style.css"/>
-		<title>404</title>
-	</head>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/style.css"/>
 
-	<body>
+	<title>404</title>
+</head>
 
-		<div style="padding:10px 20px;text-align:center">
-			<div class="figure-content">
-				<h1 style="color: #ffffff85">请输入正确的股票编码</h1>
-				<h3 style="color: #ffffff85">如:要查询贵州茅台 链接后追加/index/600519</h3>
-			</div>
-			<div class="figure-index ">
-				<a href="/index"  >首页</a>
+<title>今日Stock</title>
+<body style="text-align: center">
+
+	<div class="header">
+	<div class="horizontal-center left-header ">
+		{{current_time}}
+	</div>
+	<div class="horizontal-center market-index" style="color: #fff;font-size: 65px;width: 680px">
+			TODAY&nbsp;&nbsp;&nbsp;STOCK
+	</div>
+	<div class="horizontal-center right-header ">
+		<div class="right-header-time ">
+			 <a href="/index" style="text-decoration: none;color: #ffffff">首页</a>
+		</div>
+		<div >
+			<div class="ui small icon input " style="width: 100%;position: relative">
+				<input class="prompt" value="" type="text" placeholder="搜索股票" id="stock-search" >
+				<i  class="search icon" id="search" ></i>
+
 			</div>
 		</div>
+	</div>
+
+</div>
+	<div class="content"></div>
+	<div style="padding: 10px">
+		<h1 style="color: #ffffff;font-size: 60px">{{msg}}</h1>
+	</div>
 
 
-	</body>
+
+	<div class="horizontal-center">
+		<img src="../static/emoji.png">
+		<div   style="width: 500px;padding: 10px">
+			<p  style="font-size:18px;color: #fff;font-size: 40px">{{footer_string}}</p>
+		</div>
+
+		<a  href="https://github.com/sadjjk/StockProject"  >
+			<img class="horizontal-center" src="../static/github.png" style="padding-left: 40px;">
+		</a>
+		<a href="https://sadjjk.github.io">
+			<img class="horizontal-center" src="../static/blog.png" style="padding-left: 40px;">
+		</a>
+    </div>
+
+
+
+
+
+</body>
 </html>
