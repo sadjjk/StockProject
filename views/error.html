@@ -8,7 +8,7 @@
 	<title>404</title>
 </head>
 
-<title>今日Stock</title>
+<title>今日股票</title>
 <body style="text-align: center">
 
 	<div class="header">
@@ -52,13 +52,37 @@
 			<img class="horizontal-center" src="../static/blog.png" style="padding-left: 40px;">
 		</a>
     </div>
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
 <script>
 	var msg = '{{msg}}'
     if (msg != '')
         document.getElementById('msg').innerHTML = msg;
 
-	var img_path = '../static/emoji' +Math.floor(Math.random()*2+1).toString() + '.jpg'
+    var random_num = Math.floor(Math.random()*3+1)
+	if (random_num == 3)
+		var img_path = '../static/emoji' +random_num.toString() + '.gif'
+	else
+		var img_path = '../static/emoji' +random_num.toString() + '.jpg'
+
 	document.getElementById("emoji_img").src = img_path;
+
+
+	var search_url = "/stock/"
+    $('#stock-search').bind('keypress',function(event){
+        var word = $('#stock-search').val()
+        if(event.keyCode == "13" && word.length >=6  )
+        {
+            window.location = search_url + word;
+        }
+    });
+
+    $('#search').click(function(){
+        var word = $('#stock-search').val()
+        if (word.length >=6)
+        {
+            window.location = search_url + word;
+        }
+    });
 
 </script>
 
