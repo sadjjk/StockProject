@@ -1,4 +1,4 @@
-var bgColor = "#1f212d";//背景
+var bgColor = "#333";//背景
 var upColor="#F9293E";//涨颜色
 var downColor="#00aa3b";//跌颜色
 
