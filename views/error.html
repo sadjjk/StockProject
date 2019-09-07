@@ -40,7 +40,7 @@
 
 
 	<div class="horizontal-center">
-		<img src="../static/emoji.png">
+		<img id="emoji_img" >
 		<div   style="width: 800px;padding: 10px">
 			<p  style="font-size:18px;color: #fff;font-size: 40px">{{footer_string}}</p>
 		</div>
@@ -56,6 +56,10 @@
 	var msg = '{{msg}}'
     if (msg != '')
         document.getElementById('msg').innerHTML = msg;
+
+	var img_path = '../static/emoji' +Math.floor(Math.random()*2+1).toString() + '.jpg'
+	document.getElementById("emoji_img").src = img_path;
+
 </script>
 
 </body>
