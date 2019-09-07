@@ -21,10 +21,11 @@ def check_func(func):
 
 
 def check_response(r):
-    logging.info("API_URL:{}\nSTATUS CODE {}".format(
-        r.url, r.status_code
-    ))
+
     if r.status_code != 200:
+        logging.error("API_URL:{}\nSTATUS CODE {}".format(
+            r.url, r.status_code
+        ))
         raise  ValueError('接口API异常！请检查')
 
 def add_code_sign(code):

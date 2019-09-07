@@ -1,9 +1,8 @@
 import datetime
-import logging
 import re
 import traceback
 
-from bottle import run, route, template, static_file, request
+from bottle import default_app, request, route, static_file, template
 
 from stock_details import *
 
@@ -71,7 +70,7 @@ def stock_figure(code):
 def error():
     return template('error')
 
-run(host = 'localhost', port = 8002, debug = True, reloader = True)
-# application = default_app()
+# run(host = 'localhost', port = 8002, debug = True, reloader = True)
+application = default_app()
 
 

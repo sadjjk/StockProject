@@ -1,5 +1,4 @@
 import json
-import logging
 import os
 import pickle
 
@@ -10,7 +9,7 @@ from requests.adapters import HTTPAdapter
 from config import *
 from helps import add_code_sign, check_func, check_response
 
-logging.basicConfig(level=logging.INFO,format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.ERROR,format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 
 
