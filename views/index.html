@@ -78,16 +78,23 @@
                         % for item in index_data['data']:
                         <div class="item">
                             <div>
-                                <a href="/stock/{{item['f12']}}">
-                                    <span class="horizontal-center white width-60">{{item['f14']}}</span>
-                                </a>
+
                                 %if float(item['f3']) > 0:
+                                <a href="/stock/{{item['f12']}}">
+                                    <span class="horizontal-center red width-60">{{item['f14']}}</span>
+                                </a>
                                 <span class="horizontal-center red width-80">{{item[index_data['field_name']]}}{{index_data['unit_symbol']}}</span>
                                 <span class="horizontal-center red width-60">{{item['f3']}}%</span>
                                 %elif float(item['f3']) == 0:
+                                <a href="/stock/{{item['f12']}}">
+                                    <span class="horizontal-center white width-60">{{item['f14']}}</span>
+                                </a>
                                 <span class="horizontal-center white width-80">{{item[index_data['field_name']]}}{{index_data['unit_symbol']}}</span>
                                 <span class="horizontal-center white width-60">{{item['f3']}}%</span>
                                 %else:
+                                <a href="/stock/{{item['f12']}}">
+                                    <span class="horizontal-center green width-60">{{item['f14']}}</span>
+                                </a>
                                 <span class="horizontal-center green width-80">{{item[index_data['field_name']]}}{{index_data['unit_symbol']}}</span>
                                 <span class="horizontal-center green width-60">{{item['f3']}}%</span>
 
@@ -108,21 +115,22 @@
         </div>
         <ul class="stock-list">
             % for item in my_stock_data:
-            <li  >
-                <a href="/stock/{{item[0][2:]}}">
-                <span class="horizontal-center white width-60 ">{{item[1]}}</span>
-
+            <li >
                 %if float(item[4]) > 0:
+                <a href="/stock/{{item[0][2:]}}">
+                <span class="horizontal-center red width-60 ">{{item[1]}}</span>
                 <span class="horizontal-center red width-60">{{item[2]}}</span>
                 <span class="horizontal-center red width-60">{{item[4]}}%</span>
                 %elif float(item[4]) == 0:
+                <a href="/stock/{{item[0][2:]}}">
+                <span class="horizontal-center white width-60 ">{{item[1]}}</span>
                 <span class="horizontal-center white width-60">{{item[2]}}</span>
                 <span class="horizontal-center white width-60">{{item[4]}}%</span>
                 %else:
+                <a href="/stock/{{item[0][2:]}}">
+                <span class="horizontal-center green width-60 ">{{item[1]}}</span>
                 <span class="horizontal-center green width-60">{{item[2]}}</span>
                 <span class="horizontal-center green width-60">{{item[4]}}%</span>
-
-
                 %end
                 </a>
 
@@ -140,20 +148,22 @@
         <ul class="stock-list">
             % for item in hs300_data:
             <li  >
-                <a href="/stock/{{item[0][2:]}}">
-                <span class="horizontal-center white width-60 ">{{item[1]}}</span>
 
                 %if float(item[4]) > 0:
+                <a href="/stock/{{item[0][2:]}}">
+                <span class="horizontal-center red width-60 ">{{item[1]}}</span>
                 <span class="horizontal-center red width-60">{{item[2]}}</span>
                 <span class="horizontal-center red width-60">{{item[4]}}%</span>
                 %elif float(item[4]) == 0:
+                <a href="/stock/{{item[0][2:]}}">
+                <span class="horizontal-center white width-60 ">{{item[1]}}</span>
                 <span class="horizontal-center white width-60">{{item[2]}}</span>
                 <span class="horizontal-center white width-60">{{item[4]}}%</span>
                 %else:
+                <a href="/stock/{{item[0][2:]}}">
+                <span class="horizontal-center green width-60 ">{{item[1]}}</span>
                 <span class="horizontal-center green width-60">{{item[2]}}</span>
                 <span class="horizontal-center green width-60">{{item[4]}}%</span>
-
-
                 %end
                 </a>
             </li>
