@@ -17,15 +17,26 @@
                     <div class="ui inverted relaxed divided list">
                         % for item in market_index_data:
                         <div class="item">
-
-                            <span class="horizontal-center white width-80 ">{{item['f1']}}</span>
-
-                          %if float(item['f4']) > 0:
+                            %if float(item['f4']) > 0:
+                            <a href="/stock/{{item['f12']}}">
+                                <span class="horizontal-center red width-80 ">{{item['f1']}}</span>
+                            </a>
                             <span class="horizontal-center red width-80" >{{item['f2']}}</span>
                             <span class="horizontal-center red width-80" >{{item['f3']}}%</span>
                             <span class="horizontal-center red width-80" >{{item['f4']}}</span>
                             <span class="horizontal-center red width-80" >{{item['f6']}}</span>
+                            %elif float(item['f4']) == 0:
+                            <a href="/stock/{{item['f12']}}">
+                                <span class="horizontal-center white width-80 ">{{item['f1']}}</span>
+                            </a>
+                            <span class="horizontal-center white width-80" >{{item['f2']}}</span>
+                            <span class="horizontal-center white width-80" >{{item['f3']}}%</span>
+                            <span class="horizontal-center white width-80" >{{item['f4']}}</span>
+                            <span class="horizontal-center white width-80" >{{item['f6']}}</span>
                             %else:
+                            <a href="/stock/{{item['f12']}}">
+                                <span class="horizontal-center green width-80 ">{{item['f1']}}</span>
+                            </a>
                             <span class="horizontal-center green width-80">{{item['f2']}}</span>
                             <span class="horizontal-center green width-80" >{{item['f3']}}%</span>
                             <span class="horizontal-center green width-80" >{{item['f4']}}</span>

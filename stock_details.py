@@ -1,11 +1,14 @@
-import  tushare as ts
-from config import *
-import  requests
-import  json
-import pickle
+import json
 import os
+import pickle
 import time
-from  requests.adapters import HTTPAdapter
+
+import requests
+import tushare as ts
+from requests.adapters import HTTPAdapter
+
+from config import *
+
 
 def add_code_sign(code):
 
@@ -133,7 +136,9 @@ def get_stock_minute(code):
 def get_stock_history(code):
 
     history_data = []
-    code = add_code_sign(code)
+    if code[:2] not in ['sz','sh']:
+        code = add_code_sign(code)
+
     r = requests.get(TENCENT_STOCK_HISTORY_URL % code,headers = HEADERS)
 
     if r.status_code == 200:
@@ -169,6 +174,12 @@ def get_market_index():
         data[0]['f1'] = '上证 '
         data[1]['f1'] = '深证 '
         data[2]['f1'] = '创业板'
+
+        data[0]['f12'] = 'sh000001'
+        data[1]['f12'] = 'sz399001'
+        data[2]['f12'] = 'sz399006'
+
+
 
         for index_data in data:
             index_data['f3'] = str(float(index_data['f3']) /100)  # 涨跌幅

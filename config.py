@@ -38,7 +38,6 @@ import random
     API: http://push2.eastmoney.com/api/qt/ulist.np/get?fields=f2,f3,f4,f6,f104,f105,f106&secids=1.000001
     result : {"rc":0,"rt":11,"svr":181240774,"lt":1,"full":1,"data":{"total":1,"diff":[{"f2":288624,"f3":-16,"f4":-468,"f6":224751169536.0,"f104":296,"f105":1191,"f106":43}]}}
 
-                                                                                                上证：2886.24 -4.68 -0.16% 2247.51亿元(涨:296 平:43 跌:1191)
 
     多只指数
     加逗号
@@ -68,7 +67,7 @@ SINA_STOCK_URL = "http://hq.sinajs.cn/list="
 
 TENCENT_STOCK_MINUTE_URL = "http://data.gtimg.cn/flashdata/hushen/minute/%s.js"
 TENCENT_STOCK_HISTORY_URL = "http://data.gtimg.cn/flashdata/hushen/latest/daily/%s.js"
-
+# 指定年份  http://data.gtimg.cn/flashdata/hushen/daily/17/sz000750.js
 EASTMONEY_MARKEY_INDEX_URL = 'http://push2.eastmoney.com/api/qt/ulist.np/get?fields=f2,f3,f4,f6,f104,f105,f106&secids='
 
 EASTMONEY_STOCK_RANK_URL = 'http://40.push2.eastmoney.com/api/qt/clist/get?&pn=1&pz=10&po=1&fid=%s&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2&fields=%s'

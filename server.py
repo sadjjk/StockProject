@@ -1,13 +1,11 @@
-from bottle import run,route,template,static_file,default_app,request,redirect
-from stock_details import  *
-import traceback
 import datetime
 import logging
 import re
+import traceback
 
+from bottle import run, route, template, static_file, request
 
-
-
+from stock_details import *
 
 
 @route("/")
@@ -47,7 +45,7 @@ def server_static(filename):
 def stock_figure(code):
 
 
-    if re.search(r'^\d{6}$',code):
+    if re.search(r'^(sh|sz)?\d{6}$',code):
 
         try:
 
@@ -73,7 +71,7 @@ def stock_figure(code):
 def error():
     return template('error')
 
-#run(host = 'localhost', port = 8002, debug = True, reloader = True)
-application = default_app()
+run(host = 'localhost', port = 8002, debug = True, reloader = True)
+# application = default_app()
 
 
