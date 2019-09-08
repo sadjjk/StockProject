@@ -105,7 +105,7 @@ def error(error):
                             )
 
 
-run(host = 'localhost', port = 8002, debug = True, reloader = True)
-# application = default_app()
+# run(host = 'localhost', port = 8002, debug = True, reloader = True)
+application = default_app()
 
 

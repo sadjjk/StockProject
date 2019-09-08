@@ -1,7 +1,7 @@
 import logging
 import time
 import traceback
-
+import tushare as ts
 
 '''
 定义装饰器，用于检查各个函数的的异常
@@ -30,6 +30,7 @@ def check_response(r):
         ))
         raise  ValueError('接口API异常！请检查')
 
+# 股票代码增加前缀标识符
 def add_code_sign(code):
 
     if code[:3] in ['000','002','300','001','003']:
@@ -39,5 +40,22 @@ def add_code_sign(code):
 
     return  code
 
+# 交易日判断
+def is_trade_time(now_time):
+    pro = ts.pro_api('be84c60f916ddedb46fc678a0c8e051bf713650e0c7d8e5f0f3decbb')
+
+    current_date = now_time.strftime('%Y%m%d')
+    current_time = now_time.strftime('%H%M%S')
+
+    is_open = pro.trade_cal(start_date=current_date, end_date=current_date)['is_open'].values[0]
+    if is_open == 0 :
+        return  0
+    else:
+        if 93000 < int(current_time) <113030:
+            return  1
+        elif 130000 < int(current_time) < 150030:
+            return  1
+        else:
+            return 0
 
 

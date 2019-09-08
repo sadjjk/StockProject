@@ -227,9 +227,8 @@ def get_top_banner():
 
 
 
-if __name__ == '__main__':
-    data = get_stock_detail(['123345'])[0]
 
-    data
+#if __name__ == '__main__':
+
 
 
