@@ -1,4 +1,5 @@
 from bottle import default_app, request, route, static_file, template,run,error,redirect
+from helps import is_trade_time
 from stock_details import *
 import datetime
 import re
@@ -20,8 +21,11 @@ def check_stock_code(code):
 @route("/")
 @route("/index")
 def index():
-    current_date = datetime.datetime.now().strftime('%Y-%m-%d')
-    current_time = datetime.datetime.now().strftime('%H:%M:%S')
+    now_time = datetime.datetime.now()
+    current_date = now_time.strftime('%Y-%m-%d')
+    current_time = now_time.strftime('%H:%M:%S')
+    trade_flag = is_trade_time(now_time)
+    print(trade_flag)
     hs300_data = get_stock_detail(get_hs300())
     my_stock_data = get_stock_detail(get_my_stock())
     market_index_data = get_market_index()
@@ -32,12 +36,14 @@ def index():
                             hs300_data = hs300_data,
                             market_index_data=market_index_data,
                             top_banner_data = get_top_banner(),
-                            footer_string = random.choice(FOOTER_STRING)
+                            footer_string = random.choice(FOOTER_STRING),
+                            trade_flag = trade_flag
                     )
 
 
 @route('/index', method = 'post')
 def index():
+
     current_date = datetime.datetime.now().strftime('%Y-%m-%d')
     current_time = datetime.datetime.now().strftime('%H:%M:%S')
     new_code = request.POST.get('add_code')

@@ -184,9 +184,11 @@
 <script>
 
     // 刷新
-     setTimeout(function(){
-         window.location.reload();
-     }, 3000)
+    if({{trade_flag}}) {
+        setTimeout(function () {
+            window.location.reload();
+        }, 2000)
+    }
 
 
 
