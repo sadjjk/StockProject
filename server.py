@@ -52,29 +52,22 @@ def index():
                         msg=code_msg['msg']
                         )
 
-
-
-
-
-
-
-
-
-
 @route("/stock/<code>")
 def stock_figure(code):
-    current_date = datetime.datetime.now().strftime('%Y-%m-%d')
     current_time = datetime.datetime.now().strftime('%H:%M:%S')
 
     code_msg = check_stock_code(code) # 检查股票的有效性
     if code_msg['msg'] == "success":
         single_stock_detail = code_msg['data']
+        print(single_stock_detail)
         history_data = get_stock_history(code)
         minute_data = get_stock_minute(code)
-        return template('figure', history_data=history_data,
+        return template('detail', history_data=history_data,
                         minute_data={"data": minute_data,
                                      "yestclose": single_stock_detail[6]},
-                        stock_info=single_stock_detail).replace('&#039;', "'")
+                        stock_info=single_stock_detail,
+                        current_time =current_time,
+                        footer_string=random.choice(FOOTER_STRING)).replace('&#039;', "'")
 
     else:
         return template('error',

@@ -62,7 +62,7 @@ var time_arr = function(type) {
 			timeArr.push('09:30');
 			timeArr.concat(getNextTime('09:30', '11:29', 1, timeArr)); 
 			timeArr.push('13:00');
-			timeArr.concat(getNextTime('13:00', '15:00', 1, timeArr)); 
+			timeArr.concat(getNextTime('13:00', '15:02', 1, timeArr));
 		return timeArr;
 	}
 	if(type.indexOf('hk')!=-1){//生成港股时间段
@@ -220,7 +220,8 @@ function initMOption(m_data,type){
 					lineStyle: {
 						color: '#181a23'
 					}
-				},  
+				},
+				axisPointer:{show:false}
 			}, { 
 				scale: true,  gridIndex: 1, splitNumber: 3,  
 				position: 'right', z:4,
@@ -243,13 +244,7 @@ function initMOption(m_data,type){
 						color: '#181a23'
 					}
 				},
-				axisPointer:{show:true,
-					label:{
-						formatter:function(params){ //计算右边Y轴对应的当前价的涨幅比例
-							return  ratioCalculate(params.value,m_data.yestclose)+'%';
-						}
-					}
-				}
+				axisPointer:{show:false}
 			} 
 			, { //交易图
 				gridIndex: 2,z:4,
@@ -588,6 +583,7 @@ function initKOption(cdata){
 							color: '#181a23'
 						}
 					},
+					axisPointer:{show:false}
 				}, { //交易图
 					gridIndex: 1, splitNumber: 3, z:4,
 					axisLine: {
@@ -604,6 +600,7 @@ function initKOption(cdata){
 						inside: true, //label文字朝内对齐 
 						fontSize: 8
 					},
+					axisPointer:{show:false}
 				}, { //幅图
 					z:4, gridIndex: 2,splitNumber: 4,
 					axisLine: {
@@ -620,6 +617,7 @@ function initKOption(cdata){
 						inside: true, //label文字朝内对齐 
 						fontSize: 8
 					},
+					axisPointer:{show:false}
 				}
 			],
 			dataZoom: [{

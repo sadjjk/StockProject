@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.css">
+    	<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#B4E6FB"> 
+		<title>今日股票</title>
+	</head>
+
+	<body>
+
+		<div class="header">
+			<div class="horizontal-center left-header ">
+				{{current_time}}
+			</div>
+			<div class="horizontal-center market-index" >
+                    <div class="ui inverted relaxed divided list" style="font-size: 30px;width: 686px">
+						%if float(stock_info[4]) > 0:
+						<span class="horizontal-center red width-160" >{{stock_info[1]}}</span>
+						<span class="horizontal-center red width-160" >{{stock_info[2]}}</span>
+						<span class="horizontal-center red width-160" >{{stock_info[4]}}%↑</span>
+						%else:
+						<span class="horizontal-center green width-160" >{{stock_info[1]}}</span>
+						<span class="horizontal-center green width-160" >{{stock_info[2]}}</span>
+						<span class="horizontal-center green width-160" >{{stock_info[4]}}%↑</span>
+						%end
+                    </div>
+			</div>
+			<div class="horizontal-center right-header ">
+				<div class="right-header-time ">
+					 <a href="/index" style="text-decoration: none;color: #ffffff">首页</a>
+				</div>
+				<div >
+					<div class="ui small icon input " style="width: 100%;position: relative">
+						<input class="prompt" value="" type="text" placeholder="搜索股票" id="stock-search" >
+						<i  class="search icon" id="search" ></i>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div id="m-line" class="m-line"></div>
+		<div id="k-content" class="K-line"></div>
+		<footer style="position: relative">
+			<h1 style="font-size: 50px;color: #fff">今日股票</h1>
+			<p style="font-size:18px;color: #fff">{{footer_string}}</p>
+			<a href="https://github.com/sadjjk/StockProject"  >
+				<img class="horizontal-center" src="../static/github.png" style="padding-left: 40px;">
+			</a>
+			<a href="https://sadjjk.github.io">
+				<img class="horizontal-center" src="../static/blog.png" style="padding-left: 40px;">
+			</a>
+		</footer>
+
+		<script src="../static/jquery-3.3.1.min.js"></script>
+		<script src="../static/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/k-line.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+
+				var kdata = {{history_data}}
+				var mdata = {{minute_data}}
+				var mChart = echarts.init(document.getElementById('m-line'));
+				mChart.setOption(initMOption(mdata,'hs'));
+				
+				var kChart = echarts.init(document.getElementById('k-content')); 
+				kChart.setOption(initKOption(kdata)); 
+
+		</script>
+	</body>
+</html>

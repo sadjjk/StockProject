@@ -1,20 +1,69 @@
+.red{
+    color:#f00;
+}
+
+.green{
+    color:#00ff00;
+}
+
+
+.white{
+	color: #ffffff;
+}
+
+.width-80{
+	width: 80px;
+}
+
+.width-60{
+	width: 60px;
+}
+
+.width-160{
+	width: 160px;
+}
+
 body{
 	background: #333;
 }
 
-.fr{
-    float:right;
+.header,footer{
+	padding: 10px 0px;
+	text-align: center;
+	height: 125px;
+	width: 1286px;
+	display: table-cell;
+	vertical-align: middle;
 }
-.fl{
-    float:left;
+
+.horizontal-center{
+	display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+.right-header{
+	width: 115px;
+	position: relative;
+}
+
+.left-header{
+    color: #fff;
+    font-size: 48px;
+}
+
+.right-header-time {
+    color: #fff;
+    font-size: 20px;
+	text-align: right;
+	padding: 10px 2px;
 }
 
 .banner{
     padding: 2px 25px 5px;
     text-align: center;
 }
-
-
 
 
 .content{
@@ -53,101 +102,20 @@ body{
 }
 
 
-.red{
-    color:#f00;
+.m-line{
+	height: 480px;
+	width: 100%;
+	margin:0 auto ;
+	padding-left: 30px;
+	padding-right: 20px;
+}
+ .K-line {
+	height: 360px;
+	width: 100%;
+	margin:0 auto;
+ 	padding: 0px 20px;
 }
 
-.green{
-    color:#00ff00;
-}
-
-
-.white{
-	color: #ffffff;
-}
-
-.width-80{
-	width: 80px;
-}
-
-.width-60{
-	width: 60px;
-}
-.Kline-div{
-		position: absolute;
-	 	width: 100%;
-		bottom: 0rem;
-		top: 12%;
-		text-align:center;
-		padding: 0px 20px;
-	}
-.Kline-div .m-line{height: 80%;width: 100%;margin:0 auto }
-.Kline-div .K-line{height: 60%;width: 100%;margin:0 auto}
-
-.figure-content {
-	width:50% ;
-	text-align:center;
-	min-height: 30px;
-	border-radius: 5px;
-	margin: 0 auto;
-	line-height: 30px;
-	display: inline-block;
-}
-
-.figure-stock-info{
-	min-width: 30%;
-	display: inline-block;
-}
-
-
-.figure-index {
-	float: right;
-	width:5% ;
-	text-align:center;
-	min-height: 30px;
-	background-color: #1b1c1d40;
-	border-radius: 5px;
-	line-height: 30px;
-}
-
-.figure-index a{
-	color: #ffffff;
-	text-decoration: none;
-}
-
-
-.header,footer{
-	padding: 10px 0px;
-	text-align: center;
-}
-
-.horizontal-center{
-	display: inline-block;
-    vertical-align: middle;
-}
-
-
-
-.right-header{
-	width: 115px;
-	position: relative;
-}
-
-.left-header{
-    color: #fff;
-    font-size: 48px;
-}
-
-.right-header-time {
-    color: #fff;
-    font-size: 20px;
-	text-align: right;
-	padding: 10px 2px;
-}
-
-.market-index-num{
-    padding: 1px 10px;
-}
 
 .title{
 	width: 93%;
