@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="../static/style.css"/>
 </head>
-<title>今天股票</title>
+<title>今日股票</title>
 <body>
 
     <div class="header">
@@ -200,7 +200,7 @@
 
     $('#search').click(function(){
         var word = $('#stock-search').val()
-        if (word.length >=6)
+        if (event.keyCode == "13" && word.length >=6)
         {
             window.location = search_url + word;
         }
@@ -211,11 +211,9 @@
         var word = $('#add-stock').val()
         if (word.length >=6){
             if (confirm("确认添加" + word + "到自选股？")) {
-                // document.write("You pressed OK!")
-                $.post("/index",{code:word},function(data) {
-                    window.location.href = "/"
+                $.post("/index",{add_code:word},function(response) {
+                    document.write(response);
                 })
-
             }
         }
 
