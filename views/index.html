@@ -56,7 +56,7 @@
             </div>
             <div >
                 <div class="ui small icon input " style="width: 100%;position: relative">
-                    <input class="prompt" value="" type="text" placeholder="搜索股票" id="stock-search" >
+                    <input class="prompt" value="" type="text" placeholder="搜索股票" id="stock-search"  onmouseover="eFresh();" onmouseout="sFresh();" >
                     <i  class="search icon" id="search" ></i>
 
                 </div>
@@ -134,7 +134,7 @@
             %end
             <div class="horizontal-center add-stock">
                 <div class="ui mini  icon input  " style="width: 100%;position: relative;top: 3px;">
-                    <input class="prompt" value="" type="text" placeholder="添加自选" id="add-stock" style="background-color: #000;color: #fff">
+                    <input class="prompt" value="" type="text" placeholder="添加自选" id="add-stock" style="background-color: #000;color: #fff" onmouseover="eFresh();" onmouseout="sFresh();" >
                 </div>
             </div>
         </ul>
@@ -177,17 +177,31 @@
     </a>
     </footer>
 
+    <form name=xcv>
+<input type=button onClick="testtimeout()" value=启动>
+<input type=button onClick="stoper()" id="stop" value=停止>
+</form>
+
 <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.js"></script>
 <script src="../static/js/search.js"></script>
 <script src="../static/js/add_mystock.js"></script>
 <script>
 
-    // 刷新
-    if({{trade_flag}}) {
-        setTimeout(function () {
+
+    var stop = 1;
+    function myrefresh()  {
+        if(stop == 1 && {{trade_flag}}){
             window.location.reload();
-        }, 2000)
+        }
+    }
+    setTimeout('myrefresh()',1000 * 2); //指定刷新时间
+    function eFresh(){
+        stop = 0;
+    }
+    function sFresh(){
+        stop = 1;
+        setTimeout('myrefresh()',1000 * 2);
     }
 
 
