@@ -59,7 +59,6 @@ def stock_figure(code):
     code_msg = check_stock_code(code) # 检查股票的有效性
     if code_msg['msg'] == "success":
         single_stock_detail = code_msg['data']
-        print(single_stock_detail)
         history_data = get_stock_history(code)
         minute_data = get_stock_minute(code)
         return template('detail', history_data=history_data,
@@ -77,9 +76,18 @@ def stock_figure(code):
                         )
 
 
-@route('/static/<filename>')
+@route('/static/js/<filename>')
 def server_static(filename):
-    return static_file(filename, root='./static')
+    return static_file(filename, root='./static/js')
+
+@route('/static/imgs/<filename>')
+def server_static(filename):
+    return static_file(filename, root='./static/imgs')
+
+@route('/static/css/<filename>')
+def server_static(filename):
+    return static_file(filename, root='./static/css')
+
 
 @error(404)
 def error(error):

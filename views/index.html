@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
 </head>
 <title>今日股票</title>
 <body>
@@ -65,9 +65,6 @@
 
     </div>
     <div class="banner">
-
-
-
         <div class="ui stackable four column grid">
             % for index_data in top_banner_data:
             <div class="column">
@@ -173,52 +170,26 @@
     <h1 style="font-size: 50px;color: #fff">今日股票</h1>
     <p style="font-size:18px;color: #fff">{{footer_string}}</p>
     <a href="https://github.com/sadjjk/StockProject"  >
-        <img class="horizontal-center" src="../static/github.png" style="padding-left: 40px;">
+        <img class="horizontal-center" src="../static/imgs/github.png" style="padding-left: 40px;">
     </a>
     <a href="https://sadjjk.github.io">
-        <img class="horizontal-center" src="../static/blog.png" style="padding-left: 40px;">
+        <img class="horizontal-center" src="../static/imgs/blog.png" style="padding-left: 40px;">
     </a>
     </footer>
 
 <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="../static/js/search.js"></script>
+<script src="../static/js/add_mystock.js"></script>
 <script>
 
     // 刷新
-    //  setTimeout(function(){
-    //      window.location.reload();
-    //  }, 3000)
-
-    var search_url = "/stock/"
-    $('#stock-search').bind('keypress',function(event){
-        var word = $('#stock-search').val()
-        if(event.keyCode == "13" && word.length >=6  )
-        {
-            window.location = search_url + word;
-        }
-    });
-
-    $('#search').click(function(){
-        var word = $('#stock-search').val()
-        if (event.keyCode == "13" && word.length >=6)
-        {
-            window.location = search_url + word;
-        }
-    });
+     setTimeout(function(){
+         window.location.reload();
+     }, 3000)
 
 
-    $('#add-stock').bind('keypress',function(event){
-        var word = $('#add-stock').val()
-        if (event.keyCode == "13" &&  word.length >=6){
-            if (confirm("确认添加" + word + "到自选股？")) {
-                $.post("/index",{add_code:word},function(response) {
-                    document.write(response);
-                })
-            }
-        }
 
-
-    });
 </script>
 </body>
 </html>

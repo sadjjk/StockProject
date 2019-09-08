@@ -3,12 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
 
-	<title>404</title>
+	<title>今日股票</title>
 </head>
-
-<title>今日股票</title>
 <body style="text-align: center">
 
 	<div class="header">
@@ -36,9 +34,6 @@
 	<div style="padding: 10px">
 		<h1 style="color: #ffffff;font-size: 60px" id="msg" >404&nbsp;&nbsp;&nbsp;&nbsp;T . T&nbsp;&nbsp;&nbsp;&nbsp;页面跟丢了....</h1>
 	</div>
-
-
-
 	<div class="horizontal-center">
 		<img id="emoji_img" >
 		<div   style="width: 800px;padding: 10px">
@@ -46,13 +41,14 @@
 		</div>
 
 		<a  href="https://github.com/sadjjk/StockProject"  >
-			<img class="horizontal-center" src="../static/github.png" style="padding-left: 40px;">
+			<img class="horizontal-center" src="../static/imgs/github.png" style="padding-left: 40px;">
 		</a>
 		<a href="https://sadjjk.github.io">
-			<img class="horizontal-center" src="../static/blog.png" style="padding-left: 40px;">
+			<img class="horizontal-center" src="../static/imgs/blog.png" style="padding-left: 40px;">
 		</a>
     </div>
 <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+<script src="../static/js/search.js"></script>
 <script>
 	var msg = '{{msg}}'
     if (msg != '')
@@ -60,29 +56,12 @@
 
     var random_num = Math.floor(Math.random()*3+1)
 	if (random_num == 3)
-		var img_path = '../static/emoji' +random_num.toString() + '.gif'
+		var img_path = '../static/imgs/emoji' +random_num.toString() + '.gif'
 	else
-		var img_path = '../static/emoji' +random_num.toString() + '.jpg'
+		var img_path = '../static/imgs/emoji' +random_num.toString() + '.jpg'
 
 	document.getElementById("emoji_img").src = img_path;
 
-
-	var search_url = "/stock/"
-    $('#stock-search').bind('keypress',function(event){
-        var word = $('#stock-search').val()
-        if(event.keyCode == "13" && word.length >=6  )
-        {
-            window.location = search_url + word;
-        }
-    });
-
-    $('#search').click(function(){
-        var word = $('#stock-search').val()
-        if (word.length >=6)
-        {
-            window.location = search_url + word;
-        }
-    });
 
 </script>
 
