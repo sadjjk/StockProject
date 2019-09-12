@@ -76,7 +76,7 @@ def index():
 
     if delete_code:
         delete_my_stock(delete_code)
-        return  redirect("/index")
+
 
 @route("/stock/<code>")
 def stock_figure(code):
