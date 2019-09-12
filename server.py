@@ -25,7 +25,6 @@ def index():
     current_date = now_time.strftime('%Y-%m-%d')
     current_time = now_time.strftime('%H:%M:%S')
     trade_flag = is_trade_time(now_time)
-    print(trade_flag)
     hs300_data = get_stock_detail(get_hs300())
     my_stock_data = get_stock_detail(get_my_stock())
     market_index_data = get_market_index()
@@ -47,16 +46,22 @@ def index():
     current_date = datetime.datetime.now().strftime('%Y-%m-%d')
     current_time = datetime.datetime.now().strftime('%H:%M:%S')
     new_code = request.POST.get('add_code')
-    code_msg = check_stock_code(new_code) #检查股票有效性
-    if code_msg['msg'] == "success":
-        add_my_stock(new_code)
+    delete_code = request.POST.get('delete_code')
+    if new_code:
+        code_msg = check_stock_code(new_code) #检查股票有效性
+        if code_msg['msg'] == "success":
+            add_my_stock(new_code)
+            return  redirect("/index")
+        else:
+            return template('error',
+                            current_time=current_time,
+                            footer_string=random.choice(FOOTER_STRING),
+                            msg=code_msg['msg']
+                            )
+
+    if delete_code:
+        delete_my_stock(delete_code)
         return  redirect("/index")
-    else:
-        return template('error',
-                        current_time=current_time,
-                        footer_string=random.choice(FOOTER_STRING),
-                        msg=code_msg['msg']
-                        )
 
 @route("/stock/<code>")
 def stock_figure(code):

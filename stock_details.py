@@ -59,6 +59,18 @@ def add_my_stock(new_code):
             pickle.dump(stock_list, f)
 
 
+def delete_my_stock(delete_code):
+
+    if os.path.exists('.my_stock'):
+        with open('.my_stock','rb') as f :
+            stock_list = pickle.load(f)
+    else:
+        stock_list = []
+
+    if delete_code in stock_list:
+        stock_list.remove(delete_code)
+        with open('.my_stock','wb') as f:
+            pickle.dump(stock_list, f)
 
 @check_func
 def get_stock_detail(stock_code_list,step = 80):

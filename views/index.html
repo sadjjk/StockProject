@@ -112,23 +112,28 @@
         <ul class="stock-list">
             % for item in my_stock_data:
             <li >
-                %if float(item[4]) > 0:
-                <a href="/stock/{{item[0][2:]}}">
-                <span class="horizontal-center red width-60 ">{{item[1]}}</span>
-                <span class="horizontal-center red width-60">{{item[2]}}</span>
-                <span class="horizontal-center red width-60">{{item[4]}}%</span>
-                %elif float(item[4]) == 0:
-                <a href="/stock/{{item[0][2:]}}">
-                <span class="horizontal-center white width-60 ">{{item[1]}}</span>
-                <span class="horizontal-center white width-60">{{item[2]}}</span>
-                <span class="horizontal-center white width-60">{{item[4]}}%</span>
-                %else:
-                <a href="/stock/{{item[0][2:]}}">
-                <span class="horizontal-center green width-60 ">{{item[1]}}</span>
-                <span class="horizontal-center green width-60">{{item[2]}}</span>
-                <span class="horizontal-center green width-60">{{item[4]}}%</span>
-                %end
-                </a>
+                <div class='my-stock' >
+                    <a href="/stock/{{item[0][2:]}}" >
+                    %if float(item[4]) > 0:
+
+                    <span class="horizontal-center red width-60 ">{{item[1]}}</span>
+                    <span class="horizontal-center red width-60">{{item[2]}}</span>
+                    <span class="horizontal-center red width-60">{{item[4]}}%</span>
+                    %elif float(item[4]) == 0:
+
+                    <span class="horizontal-center white width-60 ">{{item[1]}}</span>
+                    <span class="horizontal-center white width-60">{{item[2]}}</span>
+                    <span class="horizontal-center white width-60">{{item[4]}}%</span>
+                    %else:
+
+                    <span class="horizontal-center green width-60 ">{{item[1]}}</span>
+                    <span class="horizontal-center green width-60">{{item[2]}}</span>
+                    <span class="horizontal-center green width-60">{{item[4]}}%</span>
+                    %end
+                    </a>
+                    <a class="delete-stock" style="display: none;cursor: pointer" ><img src="../static/imgs/delete.png" style="width: 15px;"></a>
+                </div>
+
 
             </li>
             %end
@@ -181,7 +186,7 @@
 <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.js"></script>
 <script src="../static/js/search.js"></script>
-<script src="../static/js/add_mystock.js"></script>
+<script src="../static/js/mystock.js"></script>
 <script>
 
 
@@ -199,6 +204,14 @@
         stop = 1;
         setTimeout('myrefresh()',1000 * 60);
     }
+
+    $('.my-stock').mouseover(function () {
+        $(this).children().last().show();
+    })
+
+    $('.my-stock').mouseout(function () {
+        $(this).children().last().hide();
+    })
 
 
 
