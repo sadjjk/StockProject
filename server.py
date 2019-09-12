@@ -96,14 +96,13 @@ def server_static(filename):
 
 
 @error(404)
-def error(error):
+def error_404(error):
     current_time = datetime.datetime.now().strftime('%H:%M:%S')
 
     return template('error',current_time = current_time,
                             footer_string=random.choice(FOOTER_STRING),
                             msg = ''
                             )
-
 
 
 @error(500)
