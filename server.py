@@ -105,7 +105,17 @@ def error(error):
                             )
 
 
-# run(host = 'localhost', port = 8002, debug = True, reloader = True)
-application = default_app()
+
+@error(500)
+def error_500(error):
+    current_time = datetime.datetime.now().strftime('%H:%M:%S')
+
+    return template('error',current_time = current_time,
+                            footer_string=random.choice(FOOTER_STRING),
+                            msg = '内部服务异常！你好像被庄家发现了！'
+                            )
+
+run(host = 'localhost', port = 8002, debug = True, reloader = True)
+# application = default_app()
 
 
