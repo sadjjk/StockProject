@@ -53,10 +53,11 @@ def add_my_stock(new_code):
     else:
         stock_list = []
 
-    if new_code not in stock_list:
-        stock_list.insert(0,new_code)
-        with open('.my_stock','wb') as f:
-            pickle.dump(stock_list, f)
+
+    stock_list.insert(0,new_code)
+    with open('.my_stock','wb') as f:
+        pickle.dump(stock_list, f)
+
 
 
 def delete_my_stock(delete_code):
