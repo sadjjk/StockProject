@@ -64,16 +64,7 @@ def index():
 
             add_my_stock(new_code)
 
-            return  redirect("/index")
-
-
-        else:
-            return template('error',
-                            current_time=current_time,
-                            footer_string=random.choice(FOOTER_STRING),
-                            msg=code_msg['msg']
-                            )
-
+        return code_msg['msg']
     if delete_code:
         delete_my_stock(delete_code)
 
