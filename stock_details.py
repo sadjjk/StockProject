@@ -158,7 +158,10 @@ def get_market_index():
     SH_MARKET_CODE = '1.000001' # 上证
     SZ_MARKEY_CODE = '0.399001' # 深证
     GEM_MARKET_CODE = '0.399006' # 创业板
-    r = requests.get(EASTMONEY_MARKEY_INDEX_URL + ','.join([SH_MARKET_CODE,
+
+    s = requests.session()
+    s.mount('http://', HTTPAdapter(max_retries=3))
+    r = s.get(EASTMONEY_MARKEY_INDEX_URL + ','.join([SH_MARKET_CODE,
                                                            SZ_MARKEY_CODE,
                                                            GEM_MARKET_CODE]),headers = HEADERS)
     check_response(r)
@@ -227,8 +230,6 @@ def get_top_banner():
 
 
 
-
-#if __name__ == '__main__':
 
 
 
