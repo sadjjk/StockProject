@@ -139,3 +139,25 @@ body{
     position: relative;
 }
 
+#back-to-top.show {
+    opacity: 1;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 40px;
+    height: 32px;
+    text-align: center;
+    line-height: 30px;
+    background: #fff;
+    color: #444;
+    cursor: pointer;
+    border-radius: 2px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity .2s ease-out;
+    border: 1px solid #ddd;
+}
