@@ -6,21 +6,20 @@ import re
 
 
 
-def check_stock_code(code):
+def check_stock_code(code,check_my_stock=False):
     if re.search(r'^(sh|sz)?\d{6}$', code):
         try:
             data = get_stock_detail([code])[0]
 
-            if os.path.exists('.my_stock'):
+            if check_my_stock:
+
                 with open('.my_stock', 'rb') as f:
                     stock_list = pickle.load(f)
-            else:
-                stock_list = []
+                if code in stock_list:
 
-            if code not in stock_list:
-                return {"msg": "success", "data": data}
-            else:
-                return {"msg":"该股票已存在自选股中 无法再添加！" }
+                    return {"msg":"该股票已存在自选股中 无法再添加！" }
+
+            return {"msg": "success", "data": data}
 
         except:
             return {"msg":"该股票代码:%s不存在！" % code}
@@ -59,7 +58,7 @@ def index():
     new_code = request.POST.get('add_code')
     delete_code = request.POST.get('delete_code')
     if new_code:
-        code_msg = check_stock_code(new_code) #检查股票有效性
+        code_msg = check_stock_code(new_code,check_my_stock=True) #检查股票有效性
         if code_msg['msg'] == "success":
 
             add_my_stock(new_code)
