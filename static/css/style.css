@@ -39,6 +39,7 @@ body{
 .horizontal-center{
 	display: inline-block;
     vertical-align: middle;
+    padding-top: 3px;
 }
 
 

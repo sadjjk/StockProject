@@ -9,7 +9,7 @@ $('#stock-search').bind('keypress',function(event){
 
 $('#search').click(function(){
     var word = $('#stock-search').val()
-    if (event.keyCode == "13" && word.length >=6)
+    if (word.length >=6)
     {
         window.location = search_url + word;
     }

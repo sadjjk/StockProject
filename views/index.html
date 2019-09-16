@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="zh-cmn-Hans">
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.css">
@@ -56,8 +56,10 @@
             </div>
             <div >
                 <div class="ui small icon input " style="width: 100%;position: relative">
-                    <input class="prompt" value="" type="text" placeholder="搜索股票" id="stock-search"  onmouseover="eFresh();" onmouseout="sFresh();" >
-                    <i  class="search icon" id="search" ></i>
+                    <input class="prompt" value="" type="text" placeholder="搜索股票" id="stock-search" style="border-top-right-radius: 0;border-bottom-right-radius: 0;">
+                    <button class="ui icon button" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
+					    <i class="search icon" id="search"></i>
+			  	    </button>
 
                 </div>
             </div>
@@ -174,10 +176,10 @@
     <footer >
     <h1 style="font-size: 50px;color: #fff">今日股票</h1>
     <p style="font-size:18px;color: #fff">{{footer_string}}</p>
-    <a href="https://github.com/sadjjk/StockProject"  >
+    <a href="https://github.com/sadjjk/StockProject" target="_blank" >
         <img class="horizontal-center" src="../static/imgs/github.png" style="padding-left: 40px;">
     </a>
-    <a href="https://sadjjk.github.io">
+    <a href="https://sadjjk.github.io" target="_blank">
         <img class="horizontal-center" src="../static/imgs/blog.png" style="padding-left: 40px;">
     </a>
     </footer>
