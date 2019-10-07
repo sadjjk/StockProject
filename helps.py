@@ -42,7 +42,7 @@ def add_code_sign(code):
 
 # 交易日判断
 def is_trade_time(now_time):
-    pro = ts.pro_api('be84c60f916ddedb46fc678a0c8e051bf713650e0c7d8e5f0f3decbb')
+    pro = ts.pro_api('XXXXXXXXXXXXXXXXXX')
 
     current_date = now_time.strftime('%Y%m%d')
     current_time = now_time.strftime('%H%M%S')
