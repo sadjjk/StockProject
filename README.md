@@ -1,5 +1,5 @@
 
-[演示地址](http://47.105.166.237/index)      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Github](https://github.com/sadjjk/StockProject)
+[演示地址](www.wjinyu.top:8888)      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Github](https://github.com/sadjjk/StockProject)
 
 股票行情看板，前前后后花了一个月，基本是周末闲(咸)余(鱼)时间写写改改，工作日实在没时间。
 
